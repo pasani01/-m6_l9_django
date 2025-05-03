@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block  title%}
+    students
+{% endblock  %}
+{% block body %}
+    <p>
+        <a href="{% url 'student-add' %}" style="color: rgb(23, 99, 23); text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid rgb(23, 99, 23); border-radius: 4px; display: inline-block; margin-left: 45%;">Add student</a>
+    </p>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        {% for student in students %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{student.s_fullname}}</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">student Age : {{student.s_age}}</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary">student grade : {{student.s_grade}}</h6>
+              {% if student.is_active %}
+                <h6 class="card-subtitle mb-2 text-body-secondary">active</h6>
+              {% else %}
+                <h6 class="card-subtitle mb-2 text-body-secondary">not active</h6>
+              {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

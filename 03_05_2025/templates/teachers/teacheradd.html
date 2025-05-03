@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block  title%}
+    Add teacher
+{% endblock  %}
+{% block body %}
+<div style="width: 300px; margin-left: 40%;">
+    <form action="" method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" style="color: rgb(23, 99, 23); text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid rgb(23, 99, 23); border-radius: 4px; display: inline-block; background-color: rgb(255, 255, 255);">
+
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block  title%}
+    Feedback
+{% endblock  %}
+{% block body %}
+    <p>
+        <a href="{% url 'feedback-add' %}" style="color: rgb(23, 99, 23); text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid rgb(23, 99, 23); border-radius: 4px; display: inline-block; margin-left: 45%;">Create feedback</a>
+    </p>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        {% for feedback in feedbacks %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">student name : {{feedback.f_S_name}}</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">feedback : {{feedback.feedback}}</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Create at : {{feedback.create_at}} </h6>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

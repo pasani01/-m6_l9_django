@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block  title%}
+    Teacher
+{% endblock  %}
+{% block body %}
+    <p>
+        <a href="{% url 'teacher-add' %}" style="color: rgb(23, 99, 23); text-decoration: none; font-weight: bold; padding: 8px 16px; border: 1px solid rgb(23, 99, 23); border-radius: 4px; display: inline-block; margin-left: 45%;">Add teacher</a>
+    </p>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        {% for teacher in teachers %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{teacher.t_fname}} {{teacher.t_lname}}</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary"> Age : {{teacher.t_age}}</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary"> experyens yeras : {{teacher.t_xp_year}}</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary"> email : {{teacher.t_email}}</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Subject : {{teacher.t_subject}}</h6>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
